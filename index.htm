@@ -371,7 +371,6 @@
             @page { margin: 1cm; size: A4 landscape; }
         }
 
-Antes de cerrar style
 
       /* ── AVISO DE PANTALLA NO ADECUADA ── */
         #aviso-pantalla {
@@ -391,9 +390,10 @@ Antes de cerrar style
         /* Se muestra si la ventana es angosta o si está en vertical (tablets/teléfonos) */
         @media (max-width: 1023px), (orientation: portrait) and (max-width: 1366px) {
             #aviso-pantalla { display: flex; }
+            /* Oculta todo lo demás mientras el aviso está activo */
+            body:not(.aviso-ignorado) > *:not(#aviso-pantalla) { display: none !important; }
+            body:not(.aviso-ignorado) { overflow: hidden; }
         }
-        body.aviso-ignorado #aviso-pantalla { display: none !important; }
-        @media print { #aviso-pantalla { display: none !important; } }
         
     </style>
 </head>
