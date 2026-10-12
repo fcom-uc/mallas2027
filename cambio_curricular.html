@@ -20,53 +20,12 @@
     .link-card .uc-card_body { flex: 1; display: flex; flex-direction: column; }
     .link-card .uc-btn { margin-top: auto; align-self: flex-start; }
 
-      /* ── AVISO DE PANTALLA NO ADECUADA ── */
-    #aviso-pantalla {
-        display: none; position: fixed; inset: 0; z-index: 99999;
-        background: #2c3e50; color: #ecf0f1;
-        align-items: center; justify-content: center; text-align: center; padding: 24px;
-    }
-    #aviso-pantalla .aviso-box { max-width: 360px; display: flex; flex-direction: column; gap: 14px; align-items: center; }
-    #aviso-pantalla .aviso-icono { font-size: 3em; line-height: 1; }
-    #aviso-pantalla h2 { margin: 0; font-size: 1.25em; }
-    #aviso-pantalla p { margin: 0; font-size: 0.92em; line-height: 1.5; opacity: 0.85; }
-    #aviso-pantalla button {
-        margin-top: 6px; background: transparent; color: #ecf0f1; font-family: inherit;
-        border: 1px solid rgba(255,255,255,0.4); border-radius: 6px;
-        padding: 8px 16px; font-size: 0.85em; cursor: pointer;
-    }
-    /* Se muestra si la ventana es angosta o si está en vertical (tablets/teléfonos) */
-    @media (max-width: 1023px), (orientation: portrait) and (max-width: 1366px) {
-        #aviso-pantalla { display: flex; }
-    }
-    body.aviso-ignorado #aviso-pantalla { display: none !important; }
-    @media print { #aviso-pantalla { display: none !important; } }
-  
+ 
   </style>
 </head>
 
 <body>
  
-  <!-- ========================================================= -->
-  <!-- AVISO: PANTALLA NO ADECUADA -->
-  <!-- ========================================================= -->
-  <div id="aviso-pantalla">
-      <div class="aviso-box">
-          <div class="aviso-icono">🖥️</div>
-          <h2>Esta ventana requiere verse en un computador</h2>
-          <p>Las mallas necesitan una pantalla horizontal amplia. Ábrela en un computador
-             o, si usas una tablet, gírala a posición horizontal.</p>
-          <button onclick="document.body.classList.add('aviso-ignorado');
-                           try{sessionStorage.setItem('mallas_aviso','1');}catch(_){}">
-              Continuar de todos modos
-          </button>
-      </div>
-  </div>
-  <script>
-      try{ if(sessionStorage.getItem('mallas_aviso')==='1') document.body.classList.add('aviso-ignorado'); }catch(_){}
-  </script>
-
-
   
 <!-- ========================================================= -->
 <!-- ENCABEZADO                                                -->
